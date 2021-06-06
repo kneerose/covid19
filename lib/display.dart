@@ -30,8 +30,8 @@ class _DisplayState extends State<Display> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    var fontsize = height*0.024;
-    var title = height*0.03;
+    var fontsize = 15.0;
+    var title = 20.0;
     return DoubleBack(
       message: "press back again to close",
           child: Scaffold(
@@ -62,26 +62,12 @@ class _DisplayState extends State<Display> {
           header: WaterDropMaterialHeader(backgroundColor: Colors.green,),
                 child: Column(
             children: [
-              // Expanded(
-              //   flex: 1,
-              //     child: Container(
-              //     margin: const EdgeInsets.only(top:30),
-              //     padding: const EdgeInsets.only(top:5),
-              //     child: Text("Nepal Covid19 datas",style: TextStyle(fontSize: title),),
-              //   ),
-              // ),
               Expanded(
                 flex: 4,
-                
-                child: Container(
-                  height: height,
-                  width: width*0.9,
-                  margin: const EdgeInsets.only(top:10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),border: Border.all(color:Colors.black),color: Colors.white),
-                child: FutureBuilder(future:getdatan() ,
-                initialData: []
-                ,builder:(context,snapshot)
+                child: FutureBuilder(
+                future:getdatan() ,
+                initialData: [],
+                builder:(context,snapshot)
                 {
                   if(snapshot.data==null)
                   {
@@ -97,13 +83,20 @@ class _DisplayState extends State<Display> {
                    {
                      return SingleChildScrollView(
                                           child: Column(
-                         mainAxisSize:MainAxisSize.max,
-                        // crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                             Container(
-                                margin: const EdgeInsets.only(bottom: 10),
-                                alignment: Alignment.center,
-                                child: Text(snapshot.data[0].country,style: TextStyle(fontSize: height*0.03,color: Colors.black),)),
+                            Container(
+                               height: 250,
+                              width: width*0.9,
+                              margin: const EdgeInsets.only(top:10),
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),border: Border.all(color:Colors.black),color: Colors.white),
+                             child:Column(
+                               children: [
+                                 Container(
+                                    margin: const EdgeInsets.only(bottom: 10),
+                                    alignment: Alignment.center,
+                                    child: Text(snapshot.data[0].country,style: TextStyle(fontSize: 20,color: Colors.black),)),
+                             
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
@@ -141,23 +134,10 @@ class _DisplayState extends State<Display> {
   
                                 ],
                               ),
-                             
-                          ],
-                       ),
-                     );
-                   }
-                  }
-                  else
-                  {
-                    return Center(child:CircularProgressIndicator(color:Colors.pink));
-                  }
-                } ,),
-              )),
-              Expanded(
-                flex: 5,
-                child:
-              SingleChildScrollView(
-                          child: Column(
+                               ],
+                             )
+                            ),
+          Column(
                   children: [
                     Container(
                       margin: const EdgeInsets.only(top:15),
@@ -221,8 +201,18 @@ class _DisplayState extends State<Display> {
                           )
                   ],
                 ),
-              )
- ),
+                             
+                          ],
+                       ),
+                     );
+                   }
+                  }
+                  else
+                  {
+                    return Center(child:CircularProgressIndicator(color:Colors.pink));
+                  }
+                } ,)),
+
             ],
           ),
         ),
