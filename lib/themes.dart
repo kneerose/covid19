@@ -5,3 +5,4 @@ Color bgcolor = Colors.white;
 Color darkmodeba = Colors.blueGrey;
 Color darkmodeb = Color(0xa9a9a9);
 Color textcolor = Colors.black;
+Color buttoncolor = Color(0xff24405c);

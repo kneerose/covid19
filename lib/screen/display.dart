@@ -400,6 +400,8 @@ class _DisplayState extends State<Display> {
                                     Container(
                                       margin: const EdgeInsets.all(20),
                                       child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                            primary: buttoncolor),
                                         child: Text("world covid datas"),
                                         onPressed: () {
                                           Navigator.push(
