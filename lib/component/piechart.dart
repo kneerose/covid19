@@ -27,10 +27,11 @@ class Piechart extends StatelessWidget {
           Card(
             margin: const EdgeInsets.all(10),
             shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
                 side: BorderSide(
-              color: Colors.grey.withOpacity(0.4),
-              width: 0.5,
-            )),
+                  color: Colors.grey.withOpacity(0.4),
+                  width: 0.5,
+                )),
             //decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),border: Border.all(color:Colors.black),color: Colors.white),
             child: Column(
               children: [
