@@ -347,6 +347,15 @@ class _DisplayState extends State<Display> {
                                               return Text("error in snapshot");
                                             } else {
                                               return Card(
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                    side: BorderSide(
+                                                      color: Colors.grey
+                                                          .withOpacity(0.4),
+                                                      width: 0.5,
+                                                    )),
                                                 child: PieChart(
                                                   dataMap: {
                                                     "Deaths": snapshot
